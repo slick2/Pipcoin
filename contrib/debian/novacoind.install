@@ -1,0 +1,2 @@
+debian/bin/PipCoind usr/bin
+src/PipCoind usr/lib/PipCoin

@@ -1,0 +1,68 @@
+#!/bin/sh
+
+# PROVIDE: PipCoin
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# PipCoin_enable (bool): Set to NO by default. Set this variable to YES if you want to enable PipCoin service.
+# PipCoin_config (path): Set to /usr/local/etc/PipCoin.conf by default.
+# PipCoin_user:  The user account PipCoin daemon runs as. It uses 'root' user by default.
+# PipCoin_group: The group account PipCoin daemon runs as. It uses 'wheel' group by default.
+# PipCoin_datadir (str): Default to "/var/db/PipCoin". Base data directory.
+
+. /etc/rc.subr
+
+name=PipCoin
+rcvar=PipCoin_enable
+
+: ${PipCoin_enable:=NO}
+: ${PipCoin_config=/usr/local/etc/PipCoin.conf}
+: ${PipCoin_datadir=/var/db/PipCoin}
+: ${PipCoin_user="root"}
+: ${PipCoin_group="wheel"}
+
+required_files=${PipCoin_config}
+command=/usr/local/bin/PipCoind
+PipCoin_chdir=${PipCoin_datadir}
+pidfile="${PipCoin_datadir}/PipCoind.pid"
+stop_cmd=PipCoin_stop
+command_args="-conf=${PipCoin_config} -datadir=${PipCoin_datadir} -daemon -pid=${pidfile}"
+start_precmd="${name}_prestart"
+
+PipCoin_create_datadir()
+{
+	echo "Creating data directory"
+	eval mkdir -p ${PipCoin_datadir}
+	[ $? -eq 0 ] && chown -R ${PipCoin_user}:${PipCoin_group} ${PipCoin_datadir}
+}
+
+PipCoin_prestart()
+{
+	if [ ! -d "${PipCoin_datadir}/." ]; then
+		PipCoin_create_datadir || return 1
+	fi
+}
+
+PipCoin_requirepidfile()
+{
+	if [ ! "0`check_pidfile ${pidfile} ${command}`" -gt 1 ]; then
+		echo "${name} not running? (check $pidfile)."
+		exit 1
+	fi
+}
+
+PipCoin_stop()
+{
+    PipCoin_requirepidfile
+
+	echo "Stopping ${name}."
+	eval ${command} -conf=${PipCoin_config} -datadir=${PipCoin_datadir} stop
+	wait_for_pids ${rc_pid}
+}
+
+load_rc_config $name
+run_rc_command "$1"

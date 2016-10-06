@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PipCoin
+Comment=PipCoin P2P Cryptocurrency
+Comment[ru]=PipCoin, P2P криптовалюта
+Comment[fr]=PipCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=PipCoin, eşten eşe kriptografik sanal para birimi
+Exec=/usr/bin/PipCoin-qt
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/PipCoin80.xpm
+MimeType=x-scheme-handler/PipCoin;
+Categories=Office;

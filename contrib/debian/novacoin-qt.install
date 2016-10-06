@@ -1,0 +1,5 @@
+PipCoin-qt usr/bin
+share/pixmaps/PipCoin32.xpm usr/share/pixmaps
+share/pixmaps/PipCoin80.xpm usr/share/pixmaps
+debian/PipCoin-qt.desktop usr/share/applications
+debian/PipCoin-qt.protocol usr/share/kde4/services/

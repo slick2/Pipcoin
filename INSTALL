@@ -1,0 +1,9 @@
+Building PipCoin
+
+See doc/readme-qt.rst for instructions on building PipCoin Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of PipCoin.
+
+See doc/build-*.txt for instructions on building PipCoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of PipCoin.

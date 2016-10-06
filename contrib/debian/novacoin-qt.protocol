@@ -1,0 +1,11 @@
+[Protocol]
+exec=PipCoin-qt '%u'
+protocol=PipCoin
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false
