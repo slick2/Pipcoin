@@ -16,9 +16,21 @@ the goal of providing a long-term energy-efficient scrypt-based crypto-currency.
 Built on the foundation of Bitcoin and PPCoin, innovations such as proof-of-stake and scrypt
 help further advance the field of crypto-currency.
 
-Now PIP is real Crypto with limited coin supply 7 Millions coins. Supports wallets PC, Mac, Linux, Android in play store
-Now PIP goes full transparent and with block explorer which clearly state the total coin supply of 7Million and the coin holders rich list
-6.5 Million to users who invested in pipchain.com and 0.5 Million for PIP foundation growth
+RPC Port: 21982
+Network Port: 21983
+
+1) 
+Now PIP is real Crypto with limited coin supply 7 Millions coins. 
+Supports wallets PC, Mac, Linux, Android in play store
+
+Now PIP goes full transparent and with block explorer 
+which clearly state the total coin supply of 7Million and the coin holders rich list
 
 Block Explorer : blockexplorer.pipchain.info
+3) 
+6.5 Million to users who invested in pipchain.com and 0.5 Million for PIP foundation growth
+				
+Exchange : exchange.pipchain.info
+
+				
 Release wallets can be found at http://pipchain.info
